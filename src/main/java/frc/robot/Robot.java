@@ -25,7 +25,7 @@ import edu.wpi.first.wpilibj.XboxController;
 public class Robot extends TimedRobot {
   public static OI m_oi;
 
-  public static XboxController controllerDrive = new XboxController(0);
+  public static XboxController controllerPrimary = new XboxController(0);
 
   public static Drivetrain drivetrain = new Drivetrain();
 

@@ -28,9 +28,9 @@ public class DriveWithJoystick extends Command {
   @Override
   protected void execute() {
     double xInput = Robot.controllerPrimary.getX(Hand.kLeft);
-    double yInput = Robot.controllerPrimary.getY(Hand.kRight);
+    double yInput = Robot.controllerPrimary.getY(Hand.kLeft);
 
-    Robot.drivetrain.drivetrain.arcadeDrive(yInput, xInput);
+    Robot.drivetrain.drivetrain.arcadeDrive(yInput * 0.65 * (-1), xInput * 0.65);
   }
 
   // Make this return true when this Command no longer needs to run execute()

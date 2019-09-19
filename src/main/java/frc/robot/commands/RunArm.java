@@ -37,6 +37,7 @@ public class RunArm extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    Robot.arm.armEncoder = Robot.arm.elbowMotor.getEncoder().getPosition();
     Robot.arm.elbowPID.setReference(0, ControlType.kPosition);
     Robot.arm.wristPID.setReference(Robot.arm.armEncoder/2, ControlType.kPosition);
   }

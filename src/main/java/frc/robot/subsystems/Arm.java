@@ -8,6 +8,8 @@
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
+
+import com.revrobotics.CANPIDController;
 import com.revrobotics.CANSparkMax;
 import com.revrobotics.SparkMax;
 import com.revrobotics.CANSparkMaxLowLevel.MotorType;
@@ -19,13 +21,24 @@ public class Arm extends Subsystem {
   // Put methods for controlling this subsystem
   // here. Call these from Commands.
 
-  CANSparkMax wristMotor = new CANSparkMax(5, MotorType.kBrushless);
-  CANSparkMax elbowMotor = new CANSparkMax(6, MotorType.kBrushless);
-  
+  public double armEncoder = 0; 
+  public double wristEncoder = 0; 
+
+  public CANSparkMax wristMotor = new CANSparkMax(5, MotorType.kBrushless);
+  public CANSparkMax elbowMotor = new CANSparkMax(6, MotorType.kBrushless);
+
+  public CANPIDController wristPID = new CANPIDController(wristMotor);
+  public CANPIDController elbowPID = new CANPIDController(elbowMotor);
 
   @Override
   public void initDefaultCommand() {
     // Set the default command for a subsystem here.
     // setDefaultCommand(new MySpecialCommand());
+  }
+
+
+  public void armToAngle(double angle) {
+
+
   }
 }

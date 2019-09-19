@@ -38,8 +38,15 @@ public class RunArm extends Command {
   @Override
   protected void execute() {
     Robot.arm.armEncoder = Robot.arm.elbowMotor.getEncoder().getPosition();
-    Robot.arm.elbowPID.setReference(0, ControlType.kPosition);
+    Robot.arm.elbowPID.setReference(Robot.arm.armAngle, ControlType.kPosition);
     Robot.arm.wristPID.setReference(Robot.arm.armEncoder/2, ControlType.kPosition);
+
+  
+    double axis1 = Robot.controllerSecondary.getRawAxis(1);
+    //double axis5 = Robot.controllerSecondary.getRawAxis(5);
+
+    Robot.arm.armAngle += axis1;
+
   }
 
   // Make this return true when this Command no longer needs to run execute()

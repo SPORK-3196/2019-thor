@@ -24,6 +24,8 @@ public class Arm extends Subsystem {
   public double armEncoder = 0; 
   public double wristEncoder = 0; 
 
+  public double armAngle = 0; 
+
   public CANSparkMax wristMotor = new CANSparkMax(5, MotorType.kBrushless);
   public CANSparkMax elbowMotor = new CANSparkMax(6, MotorType.kBrushless);
 
